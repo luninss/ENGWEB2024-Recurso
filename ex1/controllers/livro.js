@@ -30,8 +30,8 @@ module.exports.listGenres = () => {
 }
 
 module.exports.insert = (book) => {
-    return Livro.findOne({ bookId: book.bookId }).exec().then(existingLivro => {
-        if (!existingLivro) {
+    return Livro.find({ bookId: book.bookId }).exec().then(existingLivros => {
+        if (existingLivros.length === 0) {
             var newLivro = new Livro(book);
             return newLivro.save();
         } else {
@@ -39,6 +39,7 @@ module.exports.insert = (book) => {
         }
     });
 }
+
 
 module.exports.remove = (id) => {
     return Livro.find({ bookId: id }).deleteOne().exec();

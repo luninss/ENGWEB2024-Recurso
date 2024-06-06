@@ -15,11 +15,9 @@ db.livros.aggregate([
   { $match: { count: { $gt: 1 } } }
 ])
 ``
-
-No final
-
-### ID para livros
+### ID para livros e autores
 Na rota GET /books/:id da API de dados, o id utilizado é o campo bookId fornecido no json.
+O ID utilizado para os autores foi o próprio nome.
 
 ### Tratar Dados
 python3 treat.py
