@@ -21,7 +21,10 @@ No final
 ### ID para livros
 Na rota GET /books/:id da API de dados, o id utilizado é o campo bookId fornecido no json.
 
-### Importar
+### Tratar Dados
+python3 treat.py
+
+### Importar dados
 mongoimport --db livros --collection livros --type json --file dataset_tratado.json --jsonArray
 
 ### Executar API
