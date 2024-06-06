@@ -2,7 +2,7 @@
 Em principio foi adicionado uma \] para fechar o json array.
 
 Depois foi criado um ficheiro python, treat.py, que pega no dataset original e transforma no que foi utilizado, as transformações que o ficheiro python faz são as seguintes:
--No campo author, cada author é seperado por virgulas, logo criamos um array de Strings para armanezar todos os autores de um livro, e remove-se o que está entre parenteses, como (illustrator);
+-No campo author, cada author é seperado por virgulas, logo criamos uma lista de Strings para armanezar todos os autores de um livro, e remove-se o que está entre parenteses, como (illustrator);
 -Todos os campos que estão a ser represetandos como string em vez de uma lista de strings são corrigidos.
 
 Apesar de o bookId ser um número concatenado com o titulo do livro, como:
