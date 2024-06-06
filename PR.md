@@ -9,10 +9,12 @@ Apesar de o bookId ser um número concatenado com o titulo do livro, como:
  -"bookId": "2767052-the-hunger-games",
 Não achei a necessidade, de alterar isto ao tratar os dados para ser só o numero, uma vez que verifiquei se havia repetições de bookId's no mongodb, e não havia.
 Comando utilizado:
+``
 db.livros.aggregate([
   { $group: { _id: "$bookId", count: { $sum: 1 } } },
   { $match: { count: { $gt: 1 } } }
 ])
+```
 
 No final
 
