@@ -14,7 +14,7 @@ db.livros.aggregate([
   { $group: { _id: "$bookId", count: { $sum: 1 } } },
   { $match: { count: { $gt: 1 } } }
 ])
-```
+``
 
 No final
 
