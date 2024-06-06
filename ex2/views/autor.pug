@@ -1,0 +1,36 @@
+extends layout
+
+block content 
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Autor #{autor}
+  body
+    header.w3-container.w3-teal
+      h1.w3-center Autor: #{autor}
+    div.w3-container
+      a(href='/') Voltar à Página Principal
+    table.w3-table.w3-bordered
+      thead
+        tr.w3-light-grey
+          th ID
+          th Título
+          th Autor
+          th Data de Publicação
+          th Páginas
+      tbody
+        each livro in livros
+          tr
+            td
+              a(href=`/${livro.bookId}`)= livro.bookId
+            td= livro.title
+            td
+              each author, index in livro.authors
+                a(href=`/authors/${author}`)= author
+                if index < livro.authors.length - 1
+                  | , 
+            td= livro.publishDate
+            td= livro.pages
+    div.w3-container
+      h2 Total de Livros: #{count}
+    

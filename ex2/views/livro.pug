@@ -1,0 +1,99 @@
+extends layout
+
+block content 
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Livro #{livro.title}
+  body
+    header.w3-container.w3-teal
+      h1 Detalhes do Livro #{livro.title}
+    div.w3-container
+      a(href='/') Voltar à Página Principal
+    div.w3-container
+      if livro.coverImg
+        div.w3.center.w3-margin
+          img(src=livro.coverImg, alt='Capa do Livro', style='max-width: 100%')
+      table.w3-table.w3-bordered
+        tr
+          td ID:
+          td= livro.bookId
+        tr
+          td Título:
+          td= livro.title
+        if livro.series
+          tr
+            td Série:
+            td= livro.series
+        tr
+          td Autores:
+          td
+            ul
+              each author, index in livro.authors
+                a(href=`/authors/${author}`)= author
+                 if index < livro.authors.length - 1
+                  | , 
+        tr
+          td Avaliação:
+          td= livro.rating
+        tr
+          td Descrição:
+          td= livro.description
+        tr
+          td Idioma:
+          td= livro.language
+        tr
+          td ISBN:
+          td= livro.isbn
+        tr
+          td Géneros:
+          td= livro.genres.join(', ')
+        tr
+          td Personagens:
+          td= livro.characters.join(', ')
+        tr
+          td Formato do Livro:
+          td= livro.bookFormat
+        tr
+          td Edição:
+          td= livro.edition
+        tr
+          td Páginas:
+          td= livro.pages
+        tr
+          td Editora:
+          td= livro.publisher
+        tr
+          td Data de Publicação:
+          td= livro.publishDate
+        tr
+          td Primeira Publicação:
+          td= livro.firstPublishDate
+        tr
+          td Prémios:
+          td
+            ul
+              each award in livro.awards
+                li= award
+        tr
+          td Número de Avaliações:
+          td= livro.numRatings
+        tr
+          td Avaliações por Estrela:
+          td= livro.ratingsByStars.join(', ')
+        tr
+          td Percentagem de Gostos:
+          td= livro.likedPercent
+        tr
+          td Localização:
+          td= livro.setting.join(', ')
+        tr
+          td Pontuação BBE:
+          td= livro.bbeScore
+        tr
+          td Votos BBE:
+          td= livro.bbeVotes
+        tr
+          td Preço:
+          td= livro.price
+    
